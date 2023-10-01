@@ -49,6 +49,7 @@ VALUES (7902, 'FORD', 'ANALYST', 7566, TO_DATE('03-DEC-81', 'DD-MON-RR'), 3000, 
 INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
 VALUES (7934, 'MILLER', 'CLERK', 7782, TO_DATE('23-JAN-82', 'DD-MON-RR'), 1300, 10, 10);
 ```
+### Employee Table:
 
 ## Create department table
 ```sql
@@ -64,49 +65,55 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (30, 'SALES', 'CHICAGO');
 
 INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 ```
+### Department Table:
 
 ### Q1) List the name of the employees whose salary is greater than that of employee with empno 7566.
 
-
 ### QUERY:
-
-
+```
+SELECT ENAME FROM EMP WHERE SAL >(select SAL from EMP where EMPNO=7566);
+```
 ### OUTPUT:
 
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
 
 ### QUERY:
-
-
+```
+select ENAME,JOB,SAL from EMP where SAL =(select MIN(SAL) from EMP);
+```
 ### OUTPUT:
 
 ### Q3) List ename, job of the employees who work in deptno 10 and his/her job is any one of the job in the department ‘SALES’.
 
 ### QUERY:
-
-
+```
+select ENAME,JOB from EMP where  DEPTNO=10 AND JOB='SALESMAN';
+```
 ### OUTPUT:
-
 
 ### Q4) Create a view empv5 (for the table emp) that contains empno, ename, job of the employees who work in dept 10.
 
 ### QUERY:
-
-
+```
+create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
+```
 ### OUTPUT:
 
 ### Q5) Create a view with column aliases empv30 that contains empno, ename, sal of the employees who work in dept 30. Also display the contents of the view.
 
 ### QUERY:
-
-
+```
+create view empv30 AS select EMPNO,ENAME,SAL from EMP where DEPTNO=30;
+```
 ### OUTPUT:
 
 ### Q6) Update the view empv5 by increasing 10% salary of the employees who work as ‘CLERK’. Also confirm the modifications in emp table
 
 ### QUERY:
-
-
+```
+update EMP set SALARY=SALARY*1.1 WHERE JOB='clerk';
+create view empv5 as select EMPNO,ENAME,SALARY,JOB from EMP;
+```
 ### OUTPUT:
 
 ## Create a Customer1 Table
@@ -124,6 +131,8 @@ INSERT INTO Customer1 (customer_id, cust_name, city, grade, salesman_id) VALUES(
 INSERT INTO Customer1 (customer_id, cust_name, city, grade, salesman_id) VALUES(3003, 'Jozy Altidor', 'Moscow', 200, 5007);
 INSERT INTO Customer1 (customer_id, cust_name, city, grade, salesman_id) VALUES(3001, 'Brad Guzan', 'London', NULL, 5005);
 ```
+### Customer Table:
+
 ## Create a Salesperson1 table
 ```sql
 CREATE TABLE Salesman1 (salesman_id INT,name VARCHAR(20),city VARCHAR(20),commission DECIMAL(4,2));
@@ -137,31 +146,40 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5006, 'Mc Lyo
 INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5007, 'Paul Adam', 'Rome', 0.13);
 INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson Hen', 'San Jose', 0.12);
 ```
+### Salesman Table:
+
 ### Q7) Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
 ### QUERY:
-
-
+```
+select s.name,c.cust_name,s.city from salesman1 as s ,customer1 as c where s.city=c.city;
+```
 ### OUTPUT:
 
 ### Q8) Write a SQL query to find salespeople who received commissions of more than 13 percent from the company. Return Customer Name, customer city, Salesman, commission.
 
-
 ### QUERY:
-
-
+```
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s inner join customer1 as c on s.city=c.city where s.commission>0.13;
+```
 ### OUTPUT:
 
 ### Q9) Perform Natural join on both tables
 
 ### QUERY:
-
-
+```
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s natural join customer1 as c where s.commission>0.13;
+```
 ### OUTPUT:
 
 ### Q10) Perform Left and right join on both tables
 
 ### QUERY:
-
-
+```
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s left join customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s right join customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
+```
 ### OUTPUT:
+
+### RESULT:
+Hence successfully created a manager database and execute DML queries using SQL.
