@@ -3,7 +3,8 @@
 
 ## Create employee Table
 ```sql
-CREATE TABLE EMP (EMPNO NUMBER(4) PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),MGR NUMBER(4),HIREDATE DATE,SAL NUMBER(7,2),COMM NUMBER(7,2),DEPTNO NUMBER(2));
+CREATE TABLE EMP (EMPNO NUMBER(4) PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),MGR NUMBER(4),HIREDATE DATE,
+SAL NUMBER(7,2),COMM NUMBER(7,2),DEPTNO NUMBER(2));
 ```
 ## Insert the values
 ```sql
@@ -171,7 +172,8 @@ select s.name,c.cust_name,s.city from salesman1 as s ,customer1 as c where s.cit
 
 ### QUERY:
 ```
-select s.name,c.cust_name,c.city,s.commission from salesman1 as s inner join customer1 as c on s.city=c.city where s.commission>0.13;
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s inner join customer1 as c on
+ s.city=c.city where s.commission>0.13;
 ```
 ### OUTPUT:
 ![13](https://github.com/Divya110205/EX-3-SubQueries-Views-and-Joins/assets/119404855/12253c4d-f176-4c3f-bf79-fe1480763153)
@@ -189,8 +191,10 @@ select s.name,c.cust_name,c.city,s.commission from salesman1 as s natural join c
 
 ### QUERY:
 ```
-select s.name,c.cust_name,c.city,s.commission from salesman1 as s left join customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
-select s.name,c.cust_name,c.city,s.commission from salesman1 as s right join customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s left join customer1 as c on
+s.salesman_id=c.salesman_id where s.commission>0.13;
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s right join customer1 as c on
+s.salesman_id=c.salesman_id where s.commission>0.13;
 ```
 ### OUTPUT:
 ![15](https://github.com/Divya110205/EX-3-SubQueries-Views-and-Joins/assets/119404855/d2ef9a9a-db36-48b5-88f3-83ab2e007c6c)
