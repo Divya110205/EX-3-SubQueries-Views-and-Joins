@@ -3,8 +3,8 @@
 
 ## Create employee Table
 ```sql
-CREATE TABLE EMP (EMPNO NUMBER(4) PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),MGR NUMBER(4),HIREDATE DATE,
-SAL NUMBER(7,2),COMM NUMBER(7,2),DEPTNO NUMBER(2));
+CREATE TABLE EMP (EMPNO NUMBER(4) PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),
+MGR NUMBER(4),HIREDATE DATE,SAL NUMBER(7,2),COMM NUMBER(7,2),DEPTNO NUMBER(2));
 ```
 ## Insert the values
 ```sql
@@ -127,7 +127,8 @@ create view empv5 as select EMPNO,ENAME,SALARY,JOB from EMP;
 
 ## Create a Customer1 Table
 ```sql
-CREATE TABLE Customer1 (customer_id INT,cust_name VARCHAR(20),city VARCHAR(20),grade INT,salesman_id INT);
+CREATE TABLE Customer1 (customer_id INT,cust_name VARCHAR(20),
+city VARCHAR(20),grade INT,salesman_id INT);
 ```
 ## Inserting Values to the Table
 ```sql
@@ -152,8 +153,9 @@ VALUES(3001, 'Brad Guzan', 'London', NULL, 5005);
 ![10](https://github.com/Divya110205/EX-3-SubQueries-Views-and-Joins/assets/119404855/10573fd4-8d1c-461e-b5a3-ed83a4df8cd2)
 
 ## Create a Salesperson1 table
-```sql
-CREATE TABLE Salesman1 (salesman_id INT,name VARCHAR(20),city VARCHAR(20),commission DECIMAL(4,2));
+```
+CREATE TABLE Salesman1 (salesman_id INT,name VARCHAR(20),
+city VARCHAR(20),commission DECIMAL(4,2));
 ```
 ## Inserting Values to the Table
 ```sql
@@ -180,8 +182,8 @@ select s.name,c.cust_name,s.city from salesman1 as s ,customer1 as c where s.cit
 
 ### QUERY:
 ```
-select s.name,c.cust_name,c.city,s.commission from salesman1 as s inner join customer1 as c on
- s.city=c.city where s.commission>0.13;
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s inner join customer1
+as c on s.city=c.city where s.commission>0.13;
 ```
 ### OUTPUT:
 ![13](https://github.com/Divya110205/EX-3-SubQueries-Views-and-Joins/assets/119404855/12253c4d-f176-4c3f-bf79-fe1480763153)
