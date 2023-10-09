@@ -201,10 +201,10 @@ select s.name,c.cust_name,c.city,s.commission from salesman1 as s natural join c
 
 ### QUERY:
 ```
-select s.name,c.cust_name,c.city,s.commission from salesman1 as s left join customer1 as c on
-s.salesman_id=c.salesman_id where s.commission>0.13;
-select s.name,c.cust_name,c.city,s.commission from salesman1 as s right join customer1 as c on
-s.salesman_id=c.salesman_id where s.commission>0.13;
+select s.name,c.cust_name,c.city,s.commission from salesman1 as sleft join
+customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
+select s.name,c.cust_name,c.city,s.commission from salesman1 as s right join
+customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
 ```
 ### OUTPUT:
 ![15](https://github.com/Divya110205/EX-3-SubQueries-Views-and-Joins/assets/119404855/d2ef9a9a-db36-48b5-88f3-83ab2e007c6c)
