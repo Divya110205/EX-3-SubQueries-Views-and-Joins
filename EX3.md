@@ -1,5 +1,5 @@
 # EX 3 SubQueries, Views and Joins 
-## DATE:
+## DATE: 17.08.2023
 ## AIM:
 To create a manager database and implement the queries using sql.
   
